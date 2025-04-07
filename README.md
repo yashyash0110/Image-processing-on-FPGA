@@ -1,1 +1,5 @@
 # Image-processing-on-FPGA
+ - This FPGA project demonstrates how to implement image processing algorithms using Verilog HDL, starting from reading an input bitmap (.bmp) image, performing operations, and writing the processed output back into a bitmap format.
+ - Key image processing techniques such as inversion, brightness control, and thresholding are implemented. The operation is selected via a configuration in the parameter.v file, which also defines input/output file paths. The output image (output.bmp) allows visual verification of results.
+ - Since Verilog does not support direct image file reading, the .bmp image is first converted to hexadecimal format (.hex) using a MATLAB script. This .hex file contains pixel RGB values (for 768x512 resolution) and is read using Verilog's $readmemh command. The data is stored in memory and passed through the selected image processing logic.
+ - The image reader module simulates a basic image sensor or camera, which is beneficial for FPGA-based functional verification. Likewise, the image writer module generates a BMP output that reflects the processed result for debugging and validation.
